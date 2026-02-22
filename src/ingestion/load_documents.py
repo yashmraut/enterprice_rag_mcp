@@ -9,6 +9,7 @@ class DocumentLoader:
     def clean_text(self, text: str) -> str:
         text = text.replace("\n\n", "\n")
         text = " ".join(text.split())
+        # print("Done with Cleaning!!!")
         return text
 
     def load_pdf_files(self) -> List[Dict]:
@@ -36,4 +37,5 @@ class DocumentLoader:
 
     def load_all_documents(self) -> List[Dict]:
         pdf_docs = self.load_pdf_files()
+        print("Documents loaded!!!!") 
         return pdf_docs

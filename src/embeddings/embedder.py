@@ -11,7 +11,7 @@ class Embedder:
     def embed_chunks(self, chunks: List[Dict]) -> np.ndarray:
         texts = [chunk["chunk_content"] for chunk in chunks]
 
-        print("generating embeddings for {len(texts)} chunks")
+        print(f"generating embeddings for {len(texts)} chunks")
 
         embeddings = self.model.encode(
             texts,
