@@ -15,7 +15,7 @@ class SemanticSearchEngine:
         print(f"Loaded {len(self.documents)} documents")
 
         # Step 2: Chunk Documents
-        chunker = TextChunker(chunk_size=500, overlap=100)
+        chunker = TextChunker(chunk_size=1200, overlap=300)
         self.chunks = chunker.chunk_documents(self.documents)
         print(f"Created {len(self.chunks)} chunks")
 
@@ -32,7 +32,7 @@ class SemanticSearchEngine:
 
         print("Semantic Search Engine Ready!")
 
-    def search(self, query: str, top_k: int = 3):
+    def search(self, query: str, top_k):
         print(f"\nSearching for: {query}")
 
         # Convert query to embedding
@@ -53,11 +53,11 @@ if __name__ == "__main__":
         if query.lower() == "exit":
             break
 
-        results = engine.search(query, top_k=3)
+        results = engine.search(query, top_k=5)
 
         print("\nTop Results:\n")
         for i, res in enumerate(results, 1):
             print(f"Rank {i} | Score: {res['score']:.4f}")
             print(f"Source: {res['source']}")
-            print(f"Chunk Preview: {res['chunk'][:300]}")
+            print(f"Chunk Preview: {res['chunk'][:1200]}")
             print("-" * 80)

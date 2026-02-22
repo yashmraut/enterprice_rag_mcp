@@ -27,7 +27,7 @@ if __name__ == "__main__":
     loader = DocumentLoader(data_dir="data")
     docs = loader.load_all_documents()
 
-    chunker =  TextChunker(chunk_size=300, overlap=50)
+    chunker =  TextChunker(chunk_size=1200, overlap=300)
     chunks = chunker.chunk_documents(docs)
 
     print(f"Total chunks created: {len(chunks)}")

@@ -60,7 +60,7 @@ Provide a clear, factual, and concise answer based strictly on the context.
 """
         return prompt
 
-    def ask(self, query: str, top_k: int = 3):
+    def ask(self, query: str, top_k: int = 5):
         """
         Full RAG flow:
         Query → Retrieval → Context → LLM → Answer
@@ -92,8 +92,8 @@ Provide a clear, factual, and concise answer based strictly on the context.
                     "content": prompt
                 }
             ],
-            temperature=0.2,  # low = more factual RAG behavior
-            max_tokens=512
+            temperature=0.2  # low = more factual RAG behavior
+            # max_tokens=512
         )
 
         answer = response.choices[0].message.content
@@ -112,7 +112,7 @@ if __name__ == "__main__":
         if query.lower() == "exit":
             break
 
-        answer, sources = rag.ask(query, top_k=3)
+        answer, sources = rag.ask(query, top_k=5)
 
         print("\n===== FINAL RAG ANSWER =====\n")
         print(answer)
