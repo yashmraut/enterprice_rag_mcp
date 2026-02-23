@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📊 Enterprise Knowledge Assistant (RAG + Groq)")
+st.title("Enterprise Knowledge Assistant (RAG + Groq)")
 st.markdown("Ask questions based on your documents using Retrieval-Augmented Generation.")
 
 # Cache the RAG pipeline (VERY IMPORTANT for performance)
@@ -29,7 +29,7 @@ with st.sidebar:
     st.write("Tip: Ask questions related to your uploaded PDFs.")
 
 # Chat input
-query = st.text_input("💬 Ask a question about your documents:")
+query = st.text_input(" Ask a question about your documents:")
 
 # Top-K selector (advanced control)
 top_k = st.slider("Number of retrieved chunks (Top-K)", 1, 10, 5)
@@ -40,11 +40,11 @@ if st.button("🔍 Get Answer") and query:
             answer, sources = rag.ask(query, top_k=top_k)
 
             # Display Answer
-            st.subheader("🧠 Answer")
+            st.subheader(" Answer")
             st.write(answer)
 
             # Display Sources (Transparency = BIG plus in interviews)
-            st.subheader("📚 Retrieved Sources (RAG Transparency)")
+            st.subheader("Retrieved Sources (RAG Transparency)")
             
             if sources:
                 for i, src in enumerate(sources, 1):
